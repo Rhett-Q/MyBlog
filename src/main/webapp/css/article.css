@@ -1,0 +1,15 @@
+.article-wrapper {
+	padding-top: 50px; 
+}
+
+.article-title span{
+	height: 34px;
+	line-height: 34px;
+	float: left;
+	margin-right: 10px;
+}
+
+.article-title input{
+	width: 50%;
+	margin: 10px 0;
+}
