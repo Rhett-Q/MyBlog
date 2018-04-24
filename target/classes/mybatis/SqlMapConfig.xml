@@ -14,4 +14,8 @@
 		<setting name="mapUnderscoreToCamelCase" value="true"></setting>
 	</settings>
 	
+	<typeAliases>
+		<package name="top.rhett.pojo"/>
+	</typeAliases>
+	
 </configuration>

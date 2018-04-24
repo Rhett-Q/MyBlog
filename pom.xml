@@ -20,6 +20,22 @@
 	</properties>
 	
 	<dependencies>
+		
+		<!-- Jackson Json处理工具包 -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		
+		<!-- 单元测试 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
 		<!-- spring核心 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -90,7 +106,37 @@
 			<version>${druid.version}</version>
 		</dependency>
 		
+		<!-- JSP相关 -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jsp-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>  
+				<artifactId>maven-compiler-plugin</artifactId>  
+				<configuration>  
+					<source>1.8</source>  
+					<target>1.8</target>  
+				</configuration>  
+			</plugin>
+		</plugins>
+	</build>
 	
   
 </project>

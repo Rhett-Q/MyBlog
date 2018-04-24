@@ -1,0 +1,29 @@
+.article-title div {
+	height: 34px;
+	line-height: 34px;
+	float: left;
+	margin-right: 10px;
+}
+
+.article-category div {
+	line-height: 28px;
+	float: left;
+	margin-right: 10px;
+}
+
+.article-tag span {
+	display: inline-block;
+	height: 34px;
+	line-height: 34px;
+	margin-right: 10px;
+}
+
+
+.article-title input{
+	width: 50%;
+	margin: 10px 0;
+}
+
+.article-wrapper button {
+	margin-right: 10px;
+}

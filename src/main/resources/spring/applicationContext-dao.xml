@@ -16,7 +16,7 @@
 		<property name="url" value="${jdbc.url}"></property>
 		<property name="username" value="${jdbc.username}"></property>
 		<property name="password" value="${jdbc.password}"></property>
-		<property name="driverClassName" value="${jdbc.driver}"></property>
+		
 	</bean>
 
 	<!-- 让spring管理sqlsessionfactory 使用mybatis和spring整合包中的 -->
@@ -29,7 +29,7 @@
 	
 	<!-- 配置扫描dao接口包，动态实现dao接口，自动注入到spring容器中 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+		
 		<property name="basePackage" value="top.rhett.dao"></property>
 	</bean>
 	

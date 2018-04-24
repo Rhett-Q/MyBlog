@@ -9,6 +9,7 @@ public class AdminControl {
 	
 	@RequestMapping("/index")
 	public String index() {
+		
 		return "index";
 	}
 	
@@ -16,5 +17,6 @@ public class AdminControl {
 	public String article() {
 		return "article";
 	}
+	
 	
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.rhett.dao.ArticleMapper">
+	
+	<!-- <resultMap type="Article" id="articleMap">
+		<id property="aid" column="aid"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<association property="category" column="categoryId" javaType="top.rhett.pojo.Category"></association>
+	</resultMap>
+	
+	<resultMap type="" id=""></resultMap> -->
+	
+
+	<insert id="addArticle" parameterType="Article" useGeneratedKeys="true" keyProperty="aid">
+		insert into article (title, categoryId, content, publishDate) values (#{title}, #{category.cid}, #{content}, #{publishDate}) 
+	</insert>
+	
+	<select id="getArticleCount" resultType="java.lang.Integer">
+		select count(*) from article
+	</select>
+	
+	<select id="queryArticlesByPage" parameterType="PageBean" resultType="top.rhett.pojo.Article">
+		select * from article limit #{pageIndex}, #{pageSize}
+	</select>
+	
+</mapper>

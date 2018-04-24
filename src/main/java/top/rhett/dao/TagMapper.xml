@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.rhett.dao.TagMapper">
+
+	<select id="selectTagByTagName" resultType="top.rhett.pojo.Tag">
+		select * from tag where tagName = #{tagName}
+	</select>
+
+	<insert id="addTags" parameterType="Tag" useGeneratedKeys="true" keyProperty="tid">
+		insert into tag (tagName) values (#{tagName})		
+	</insert>
+
+	<insert id="saveArticleTag" parameterType="ArticleTag">
+		insert into article_tag (articleId, tagId) values (#{article.aid}, #{tag.tid})
+	</insert>
+	
+</mapper>
