@@ -1,0 +1,26 @@
+body {
+	font-size: 20px;	
+	
+}
+
+#mainNav .navbar-brand {
+	font-weight: 800;
+  	color: #343a40;
+}
+
+#mainNav .navbar-nav > li.nav-item > a {
+	font-size: 12px;
+	font-weight: 800;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.navbar li {
+	padding: 0 20px;
+}
+
+#navbarResponsive ul {
+	flex-direction: column;
+}
+
+header.

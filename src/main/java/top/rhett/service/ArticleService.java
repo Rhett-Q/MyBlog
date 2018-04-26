@@ -8,4 +8,6 @@ public interface ArticleService {
 	void publishArticle(Article article);
 	
 	void queryArticlesByPage(PageBean pageBean);
+
+	Article findArticleById(String articleId);
 }

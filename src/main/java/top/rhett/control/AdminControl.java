@@ -13,10 +13,7 @@ public class AdminControl {
 		return "index";
 	}
 	
-	@RequestMapping("/article")
-	public String article() {
-		return "article";
-	}
+	
 	
 	
 }

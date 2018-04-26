@@ -9,7 +9,7 @@
 			<span class="icon-bar"></span>
 		</button>
 
-		<a class="navbar-brand" href="index.html">RHett Admin</a>				
+		<a class="navbar-brand" href="index">RHett Admin</a>				
 	</div>
 
 	<ul class="nav navbar-top-links navbar-right">

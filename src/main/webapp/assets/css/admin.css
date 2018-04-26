@@ -105,3 +105,10 @@ body {
   margin-top: 25%;
 }
 
+.dataTable {
+	text-align: center;
+}
+
+.dataTable th{
+	text-align: center;
+}

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="top.rhett.dao.TagMapper">
 
-	<select id="selectTagByTagName" resultType="top.rhett.pojo.Tag">
+	<select id="selectTagByTagName" resultType="Tag">
 		select * from tag where tagName = #{tagName}
 	</select>
 
@@ -13,5 +13,9 @@
 	<insert id="saveArticleTag" parameterType="ArticleTag">
 		insert into article_tag (articleId, tagId) values (#{article.aid}, #{tag.tid})
 	</insert>
+	
+	<select id="getTagsByAarticleId" parameterType="int" resultType="Tag">
+		select * from article_tag a, tag t where t.tid = a.tagId and articleId = #{aid}
+	</select>
 	
 </mapper>

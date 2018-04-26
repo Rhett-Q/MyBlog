@@ -4,4 +4,9 @@
 	<select id="getAllCategory" resultType="Category">
 		select * from category
 	</select>
+	
+	<select id="getCategoryById" parameterType="int" resultType="Category">
+		select * from category where cid = #{categoryId}
+	</select>
+	
 </mapper>

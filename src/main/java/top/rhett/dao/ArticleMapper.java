@@ -12,5 +12,6 @@ public interface ArticleMapper {
 	int getArticleCount();
 	
 	List<Article> queryArticlesByPage(PageBean pageBean);
-
+	
+	Article selectArticleById(String articleId);
 }

@@ -100,6 +100,7 @@ public class Article implements Serializable{
 	}
 
 	public void setPublishDate(Date publishDate) {
+		
 		this.publishDate = publishDate;
 	}
 

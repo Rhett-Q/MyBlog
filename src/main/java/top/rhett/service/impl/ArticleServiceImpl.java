@@ -1,6 +1,7 @@
 package top.rhett.service.impl;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -18,18 +19,17 @@ import top.rhett.service.ArticleService;
 public class ArticleServiceImpl implements ArticleService {
 	
 	@Autowired
-	private ArticleMapper articeMapper;
+	private ArticleMapper articleMapper;
 	
 	@Autowired
 	private TagMapper tagMapper;
 
 	@Override
 	public void publishArticle(Article article) {
-		
 		Date date = new Date();
 		/*Timestamp timestamp = new Timestamp(date.getTime());*/
 		article.setPublishDate(date);
-		articeMapper.addArticle(article);
+		articleMapper.addArticle(article);
 		List<Tag> tags = article.getTags();
 		
 		for (Tag tag : tags) {
@@ -37,7 +37,7 @@ public class ArticleServiceImpl implements ArticleService {
 			if (queryTag == null) {
 				tagMapper.addTags(tag);
 				tagMapper.saveArticleTag(new ArticleTag(article, tag));
-			} else {
+			} else { 
 				tagMapper.saveArticleTag(new ArticleTag(article, queryTag));
 			}
 			
@@ -50,7 +50,7 @@ public class ArticleServiceImpl implements ArticleService {
 		int currentPage = pageBean.getCurrentPage();
 		int pageIndex = (currentPage-1) * pageSize;
 		pageBean.setPageIndex(pageIndex);
-		int articleCount = articeMapper.getArticleCount();
+		int articleCount = articleMapper.getArticleCount();
 		pageBean.setTotalCount(articleCount);
 		int totalPage;
 		if (articleCount % pageSize == 0) {
@@ -59,10 +59,16 @@ public class ArticleServiceImpl implements ArticleService {
 			totalPage = articleCount/pageSize + 1;
 		}
 		pageBean.setTotalPage(totalPage);
-		List<Article> articlesList = articeMapper.queryArticlesByPage(pageBean);
-		
+		List<Article> articlesList = articleMapper.queryArticlesByPage(pageBean);
 		pageBean.setPageData(articlesList);
 	}
+
+	@Override
+	public Article findArticleById(String articleId) {
+		return articleMapper.selectArticleById(articleId);
+	}
+
+	
 	
 	
 

@@ -32,26 +32,29 @@
 						    <div class="article-wrapper">
 						    	<div class="article-title form-group">
 						    		<div class="label label-primary">文章标题</div>
-						    		<input type="text" name="title" placeholder="请输入文章标题" class="form-control">
+						    		<input type="text" name="title" value="${article.title }" placeholder="请输入文章标题" class="form-control">
 						    	</div>
 						    	
 						    	<div class="form-group">
-						    		<textarea id="ckeditor_standard" placeholder="Enter text ..." name="content"></textarea>
+						    		<textarea id="ckeditor_standard" name="content">${article.content }</textarea>
 						    	</div>
 						    	
 						    	<div class="article-tag form-group">
 									  <span class="label label-primary">标签</span>
-									  <input type="text" class="form-control" placeholder="请输入标签" name="tags" data-role="tagsinput">
+									  <input type="text" class="form-control" placeholder="请输入标签" name="tags">
 								</div>
 						    	
 						    	<div class="article-category form-group">
 						    		<div class="label label-primary">文章分类</div>
 						    		<select id="category" title="请选择分类" name="category.cid">
+						    			<c:forEach var="category" items="${categorys }">
+						    				<option value="${category.cid }">${category.categoryName }</option>
+						    			</c:forEach>
 						    		</select>
 						    	</div>
 						    	
 						    	<div>
-						    		<button type="submit" class="btn btn-primary">发布文章</button>
+						    		<button type=submit class="btn btn-primary">发布文章</button>
 						    		<button type="submit" class="btn btn-warning">存为草稿</button>
 						    		<button type="submit" class="btn btn-danger">取消</button>
 						    	</div>
@@ -79,20 +82,13 @@
     <script type="text/javascript">
 			$(function() {
 				$('textarea#ckeditor_standard').ckeditor({});
-				$('.selectpicker').selectpicker({
+				
+				$('#category').selectpicker({
 					  width: 200,
 					  size: 4
 					});
 				
-				$.get({
-					url: "http://localhost:8080/myblog/findAllCategory",
-					success: function(data) {
-						$.each(data, function(index, item) {
-							$("#category").append("<option value='" + item.cid + "'>" + item.categoryName + "</option>");
-						});
-						$('#category').selectpicker('refresh');
-					}
-				});
+				$('#category').selectpicker('val', '${article.category.cid}');
 				
 		        $('#category').selectpicker('render');
 		        
@@ -114,6 +110,20 @@
 	                }
 		        });
 		        
+		        $("input[name=tags]").tagsinput({
+		        	itemValue: 'value',
+					itemText: 'tagName'/* ,
+					source: ${article.tags} */
+				});
+		        
+		        <c:forEach var="tag" items="${article.tags }">
+			        $("input[name=tags]").tagsinput('add', {
+						"value": '${tag.tagName}',
+						"tagName": '${tag.tagName}'
+					});
+		    	</c:forEach>
+		        
+		    	/* $("#category option[value='" + ${article.category.cid} +"']").attr("selected", "selected"); */
 			});
 			
 			/* function volidate() {

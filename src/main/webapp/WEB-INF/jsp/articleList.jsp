@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -39,27 +40,22 @@
                     			<th>操作</th>
                     		</thead>
                     		<tbody>
-                    			<tr>
-                    				<td>1</td>
-                    				<td>2</td>
-                    				<td>3</td>
-                    				<td>4</td>
-                    				<td>5</td>
-                    			</tr>
-                    			<tr>
-                    				<td>a</td>
-                    				<td>b</td>
-                    				<td>c</td>
-                    				<td>d</td>	
-                    				<td>e</td>
-                    			</tr>
                     			<c:forEach var="article" items="${pageBean.pageData}">
                     				<tr>
 	                    				<td>${article.title }</td>
-	                    				<td>${article.title }</td>
-	                    				<td>${article.title }</td>
-	                    				<td>${article.title }</td>	
-	                    				<td>${article.title }</td>
+	                    				<td>
+	                    					<fmt:formatDate value="${article.publishDate }" pattern="yyyy年MM月dd日 HH:mm:ss"/>
+	                    				</td>
+	                    				<td>${article.hits }</td>
+	                    				<td>
+	                    					<c:if test="${article.isDraft eq '0'}">已发布</c:if>
+	                    					<c:if test="${article.isDraft eq '1'}">草稿</c:if>
+	                    				</td>
+	                    				<td>
+	                    					<button type="button" class="btn btn-primary" onclick="window.location.href='editArticle?aid=${article.aid}'">编辑</button>
+	                    					<button type="button" class="btn btn-danger">删除</button>
+	                    					<button type="button" class="btn btn-success">预览</button>
+	                    				</td>
                     				</tr>
                     			</c:forEach>
                     		</tbody>
