@@ -5,71 +5,74 @@ import java.util.List;
 
 public class PageBean<T> {
 	
-	private int currentPage;
+	private int draw;
 	
-	private int pageSize;
+	private int start;
 	
-	private int pageIndex;
+	private int length;
 	
-	private int totalPage;
+	private int recordsTotal;
 	
-	private int totalCount;
+	private int recordsFiltered;
 	
-	private List<T> pageData = new ArrayList<>();
+	private List<T> data = new ArrayList<>();
 
-	public int getCurrentPage() {
-		return currentPage;
+	public PageBean() {
+	}
+	
+	public PageBean(int start, int length) {
+		this.start = start;
+		this.length = length;
 	}
 
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
+	public int getDraw() {
+		return draw;
 	}
 
-	public int getPageSize() {
-		return pageSize;
+	public void setDraw(int draw) {
+		this.draw = draw;
 	}
 
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
+	public int getStart() {
+		return start;
 	}
 
-	public int getTotalPage() {
-		return totalPage;
+	public void setStart(int start) {
+		this.start = start;
 	}
 
-	public void setTotalPage(int totalPage) {
-		this.totalPage = totalPage;
+	public int getLength() {
+		return length;
 	}
 
-	public int getTotalCount() {
-		return totalCount;
+	public void setLength(int length) {
+		this.length = length;
 	}
 
-	public void setTotalCount(int totalCount) {
-		this.totalCount = totalCount;
+	public int getRecordsTotal() {
+		return recordsTotal;
 	}
 
-	public List<T> getPageData() {
-		return pageData;
+	public void setRecordsTotal(int recordsTotal) {
+		this.recordsTotal = recordsTotal;
 	}
 
-	public void setPageData(List<T> pageData) {
-		this.pageData = pageData;
+	public int getRecordsFiltered() {
+		return recordsFiltered;
 	}
 
-	public int getPageIndex() {
-		return pageIndex;
+	public void setRecordsFiltered(int recordsFiltered) {
+		this.recordsFiltered = recordsFiltered;
 	}
 
-	public void setPageIndex(int pageIndex) {
-		this.pageIndex = pageIndex;
+	public List<T> getData() {
+		return data;
 	}
 
-	@Override
-	public String toString() {
-		return "PageBean [currentPage=" + currentPage + ", pageSize=" + pageSize + ", pageIndex=" + pageIndex
-				+ ", totalPage=" + totalPage + ", totalCount=" + totalCount + ", pageData=" + pageData + "]";
+	public void setData(List<T> data) {
+		this.data = data;
 	}
+
 	
 	
 }

@@ -13,7 +13,7 @@
 	</div>
 
 	<ul class="nav navbar-top-links navbar-right">
-		<li class="dropdown">
+		<!-- <li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 				<i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
 			</a>
@@ -142,7 +142,7 @@
 					</a>
 				</li>
 			</ul>
-		</li>
+		</li> -->
 
 		<li class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -177,7 +177,7 @@
 						</span>
 					</div>
 				</li>
-				<li>
+				<!-- <li>
 					<a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
 				</li>
 
@@ -191,17 +191,17 @@
 							<a href="morris.html">Morris.js Charts</a>
 						</li>
 					</ul>
-				</li>
+				</li> -->
 
 				<li>
-					<a href="articleList?currentPage=1&pageSize=10"><i class="fa fa-table fa-fw"></i> Article List</a>
+					<a href="showArticleList"><i class="fa fa-table fa-fw"></i> Article List</a>
 				</li>
 
 				<li>
 					<a href="article" id="article"><i class="fa fa-edit fa-fw"></i> Publish Article</a>
 				</li>
 
-				<li>
+				<!-- <li>
 					<a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level">
 						<li>
@@ -252,7 +252,7 @@
 							<a href="login.html">Login Page</a>
 						</li>
 					</ul>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</div>

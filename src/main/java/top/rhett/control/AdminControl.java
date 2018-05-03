@@ -9,11 +9,7 @@ public class AdminControl {
 	
 	@RequestMapping("/index")
 	public String index() {
-		
-		return "index";
-	}
-	
-	
-	
+		return "redirect:/admin/showArticleList";
+	}	
 	
 }

@@ -40,7 +40,7 @@
                     			<th>操作</th>
                     		</thead>
                     		<tbody>
-                    			<c:forEach var="article" items="${pageBean.pageData}">
+                    			<%-- <c:forEach var="article" items="${pageBean.pageData}">
                     				<tr>
 	                    				<td>${article.title }</td>
 	                    				<td>
@@ -57,7 +57,7 @@
 	                    					<button type="button" class="btn btn-success">预览</button>
 	                    				</td>
                     				</tr>
-                    			</c:forEach>
+                    			</c:forEach> --%>
                     		</tbody>
                     	</table>
                     </div>
@@ -80,7 +80,25 @@
 	<script type="text/javascript">
 		$(function() {
 			$('#articleDataTable').DataTable({
-				
+				"searching": false,
+				"serverSide": true,
+				"ajax": 'articleList',
+				"columns": [
+					{"data": "title"},
+					{"data": "publishDate"},
+					{"data": "hits"},
+					{
+						"data": "isDraft",
+						"render": function ( data, type, row, meta ) {
+							return data == '1' ? '草稿':'已发布';
+							}
+				    },
+					{"data": "aid", "render": function(data, type, row, meta) {
+						var btn1 = "<button type='button' class='btn btn-primary' onclick=\"window.location.href='editArticle?aid=" + data + "'\">编辑</button> ";
+						var btn2 = " <button type='button' class='btn btn-danger' onclick=\"window.location.href='delArticle?aid=" + data + "'\">删除</button> ";
+						var btn3 = " <button type='button' class='btn btn-warning' onclick=\"window.location.href='showArticle?aid=" + data + "'\">预览</button>";
+						return btn1+btn2+btn3;
+					} }]
 			});
 		});
 	</script>

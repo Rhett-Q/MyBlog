@@ -10,4 +10,6 @@ public interface ArticleService {
 	void queryArticlesByPage(PageBean pageBean);
 
 	Article findArticleById(String articleId);
+
+	void updateArticle(Article article);
 }

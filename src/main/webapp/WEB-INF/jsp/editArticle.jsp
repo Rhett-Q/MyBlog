@@ -28,7 +28,8 @@
                     <div class="col-lg-12">
                         <h2 class="page-header">添加文章</h2>
                        
-                        <form action="publishArticle" method="post">
+                        <form action="updateArticle" method="post">
+                        	<input type="hidden" name="aid" value="${article.aid }">
 						    <div class="article-wrapper">
 						    	<div class="article-title form-group">
 						    		<div class="label label-primary">文章标题</div>
@@ -41,7 +42,7 @@
 						    	
 						    	<div class="article-tag form-group">
 									  <span class="label label-primary">标签</span>
-									  <input type="text" class="form-control" placeholder="请输入标签" name="tags">
+									  <input type="text" class="form-control" placeholder="请输入标签" name="tags" data-role="tagsinput">
 								</div>
 						    	
 						    	<div class="article-category form-group">
@@ -112,8 +113,7 @@
 		        
 		        $("input[name=tags]").tagsinput({
 		        	itemValue: 'value',
-					itemText: 'tagName'/* ,
-					source: ${article.tags} */
+					itemText: 'tagName'
 				});
 		        
 		        <c:forEach var="tag" items="${article.tags }">

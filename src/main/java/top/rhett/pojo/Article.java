@@ -1,10 +1,14 @@
 package top.rhett.pojo;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Article implements Serializable{
 	
@@ -21,9 +25,11 @@ public class Article implements Serializable{
 	private String isDraft;
 	
 	private int hits;
-	
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm")
 	private Date publishDate;
 	
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm")
+	private Date updateDate;
 	
 	/*public String getCategoryId() {
 		return this.category.getCid();
@@ -74,11 +80,16 @@ public class Article implements Serializable{
 
 	public void setContent(String content) {
 		this.content = content;
+	}	
+	
+	public Date getUpdateDate() {
+		return updateDate;
 	}
 
-	
-	
-	
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
 	public String getIsDraft() {
 		return isDraft;
 	}
@@ -96,6 +107,8 @@ public class Article implements Serializable{
 	}
 
 	public Date getPublishDate() {
+		/*SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyƒÍMM‘¬dd»’ HH:mm:ss");
+		String formatTime = dateFormat.format(publishDate);*/
 		return publishDate;
 	}
 

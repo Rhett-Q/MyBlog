@@ -14,4 +14,6 @@ public interface ArticleMapper {
 	List<Article> queryArticlesByPage(PageBean pageBean);
 	
 	Article selectArticleById(String articleId);
+
+	void updateArticle(Article article);
 }

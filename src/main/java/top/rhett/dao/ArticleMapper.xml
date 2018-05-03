@@ -20,10 +20,15 @@
 	</select>
 	
 	<select id="queryArticlesByPage" parameterType="PageBean" resultType="Article">
-		select * from article limit #{pageIndex}, #{pageSize}
+		select * from article limit #{start}, #{length}
 	</select>
 	
 	<select id="selectArticleById" parameterType="string" resultMap="articleMap">
 		select * from article where aid = #{aid}
 	</select>
+	
+	<update id="updateArticle" parameterType="Article">
+		update article set title = #{title}, content = #{content}, categoryId = #{category.cid} where aid = #{aid}
+	</update>
+	
 </mapper>

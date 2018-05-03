@@ -29,6 +29,7 @@ public class ArticleServiceImpl implements ArticleService {
 		Date date = new Date();
 		/*Timestamp timestamp = new Timestamp(date.getTime());*/
 		article.setPublishDate(date);
+		article.setUpdateDate(date);
 		articleMapper.addArticle(article);
 		List<Tag> tags = article.getTags();
 		
@@ -46,26 +47,21 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public void queryArticlesByPage(PageBean pageBean) {
-		int pageSize = pageBean.getPageSize();
-		int currentPage = pageBean.getCurrentPage();
-		int pageIndex = (currentPage-1) * pageSize;
-		pageBean.setPageIndex(pageIndex);
 		int articleCount = articleMapper.getArticleCount();
-		pageBean.setTotalCount(articleCount);
-		int totalPage;
-		if (articleCount % pageSize == 0) {
-			totalPage = articleCount/pageSize;
-		} else {
-			totalPage = articleCount/pageSize + 1;
-		}
-		pageBean.setTotalPage(totalPage);
+		pageBean.setRecordsTotal(articleCount);
+		pageBean.setRecordsFiltered(articleCount);
 		List<Article> articlesList = articleMapper.queryArticlesByPage(pageBean);
-		pageBean.setPageData(articlesList);
+		pageBean.setData(articlesList);
 	}
 
 	@Override
 	public Article findArticleById(String articleId) {
 		return articleMapper.selectArticleById(articleId);
+	}
+
+	@Override
+	public void updateArticle(Article article) {
+		articleMapper.updateArticle(article);
 	}
 
 	
